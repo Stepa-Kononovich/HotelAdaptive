@@ -198,20 +198,12 @@ input[type="checkbox"]:checked + .options:before {
     border-right: 2px solid white;
 }
 
-.range {
+.range_container {
     position: relative;
     width: 100%;
     height: 2px;
     background-color: gray;
     margin-top: 25px;
-}
-
-.range:after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background-color: white;
 }
 
 .button_range {
@@ -221,6 +213,7 @@ input[type="checkbox"]:checked + .options:before {
     background-color: white; 
     border-radius: 50%;
     top: -9px;
+    user-select: none;
 }
 
 .button_range:after {
@@ -431,6 +424,7 @@ input[type="radio"] {
 .rating_stars {
     text-align: right;
     font-size: 24px;
+    line-height: 21px;
     color: #81b3d2;
 }
 
