@@ -24,17 +24,17 @@ console.dir(range)
 function movRange(event){
     shiftX = event.pageX || event.touches[0].pageX;
     let x = shiftX-container.getBoundingClientRect().left-difference;
-    if(x < 0) {
+    if(x - range.getBoundingClientRect().width < 0) {
         x = 0;
     }
 
-    if(x > container.getBoundingClientRect().width) {
-        x = container.getBoundingClientRect().width;
+    if(x + range.getBoundingClientRect().width > container.getBoundingClientRect().width) {
+        x = container.getBoundingClientRect().width - range.getBoundingClientRect().width;
     }
     range.style.left =`${x}px`;
     let max = 3000;
     let min = 0;
-    containerValueCost.innerHTML = Math.round((max/100)*((range.offsetLeft/container.getBoundingClientRect().width)*100));
+    containerValueCost.innerHTML = Math.round((max/100)*((range.offsetLeft/(container.getBoundingClientRect().width-range.getBoundingClientRect().width))*100));
 }
 
 

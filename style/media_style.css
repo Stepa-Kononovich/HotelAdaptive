@@ -34,7 +34,7 @@
         top: -65px;
         width: 110px;
         height: 110px;
-        box-shadow: -6px -6px 18px 15px rgb(28, 3, 248);
+        box-shadow: -6px -6px 18px 15px #81b3d2;
         border-radius: 15%;
         transform: rotate(50deg) skew(10deg);
         z-index: -1;
@@ -67,6 +67,11 @@
         height: 55px;
         background: rgba(0, 0, 0, 0.7);  
         transition: 0.2s; 
+        border-bottom: 1px solid rgb(37, 37, 37);
+    }
+
+    .housing {
+        margin: 0;
     }
 
     .burger_button {
@@ -85,9 +90,9 @@
         left: 6px;
         width: 28px;
         height: 3px;
-        background: rgb(2, 2, 107);    
+        background: black;    
         border-radius: 25%;
-        box-shadow: -1px -1px 0px 1px rgb(156, 142, 231);      
+        box-shadow: -1px -1px 0px 1px #cccccc;      
     }
     
     .burger:after, .burger:before {
@@ -96,9 +101,9 @@
         top: 8px;
         width: 28px;
         height: 3px;
-        background: rgb(2, 2, 107); ;    
+        background: black;    
         border-radius: 25%;
-        box-shadow: -1px -1px 0px 1px rgb(156, 142, 231); 
+        box-shadow: -1px -1px 0px 1px #cccccc; 
     }
 
     .burger:after {
@@ -106,6 +111,94 @@
     } 
 
     .chois_options_hotel {
-        margin-top: 0;
+        margin-top: 50px;
     }
+
+    .sorting_menu {
+        flex-direction: column;
+    }
+
+    .sorting_menu *{
+        margin-top: 5px;
+    }
+
+    .sorting_menu li{
+        padding-left: 15px;
+    }
+
+    .sorting_menu li:not(:first-child){
+        padding-left: 15px;
+        justify-content: center;
+        padding-left: 50px;
+    }
+
+    .sorting_menu li:first-child{
+        order: 5;
+        border-top: 1px solid #cccccc;
+        margin-top: 10px;
+        width: 130%;
+    }
+
+    .sorting_menu li:nth-child(2){
+        padding-left: 15px;
+        justify-content: flex-start;
+    }
+
+
+    .sort_word {
+        order: 1;
+        font-size: 20px;
+    }
+
+    .drop_arrow_menu{
+        align-self: flex-start;
+        margin-top: 20px;
+        width: 55px;
+    }
+
+    .sorting_section{
+        overflow: hidden;
+     }
+
+    .sorting_section .position {
+        margin-left: 0px;
+        width: 95%;
+    }
+
+    .image_hotel {
+        display: block;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        height: 100%;
+        top:0;
+    }
+
+
+    .image_hotel img{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        filter: blur(2px);
+    }
+
+    .section_constructor_hotel {
+        position: relative;
+        align-items: flex-start
+    }
+
+    .section_constructor_hotel h1 {
+        color: black;
+    }
+
+    .section_constructor_hotel .position {
+        margin: 0;
+        width:100%;
+        align-self: center;
+    }
+
+    .boking_a_hotel {
+        margin-left: 15px;
+    }
+
 }
