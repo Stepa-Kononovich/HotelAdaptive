@@ -79,18 +79,22 @@
                         <h1>Найдено:</h1>
                         <span class="sum_found_suggestions">3</span>
                     </li>
-                    <li><span class="sort_word">Сортировка:</span> </li>
-                    <li>
-                        <input name="sorting_radio_button" type="radio" id="cost">
-                        <label for="cost">по цене</label>
-                    </li>
-                    <li>
-                        <input name="sorting_radio_button" type="radio" id="type">
-                        <label for="type">по типу</label>
-                    </li>
-                    <li>
-                        <input name="sorting_radio_button" type="radio" id="rating">
-                        <label for="rating">по рейтингу</label>
+                    <li><span class="sort_word">Сортировка:</span> <div class="sorting_arrow"></div></li>
+                    <li class="shrink" id="shrink">
+                        <ul class="inner_sorting_menu">
+                            <li>
+                                <input name="sorting_radio_button" type="radio" id="cost">
+                                <label for="cost">по цене</label>
+                            </li>
+                            <li>
+                                <input name="sorting_radio_button" type="radio" id="type">
+                                <label for="type">по типу</label>
+                            </li>
+                            <li>
+                                <input name="sorting_radio_button" type="radio" id="rating">
+                                <label for="rating">по рейтингу</label>
+                            </li>
+                        </ul>
                     </li>
             </ul> 
             <div class="drop_arrow_menu">

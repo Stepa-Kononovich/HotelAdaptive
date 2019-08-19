@@ -4,8 +4,11 @@ function handleClick(e) {
         footer_menu.classList.toggle('footer_menu_activ');
     }
 
-    if(e.target.classList.contains('button_range')) {
-
+    if(e.target.classList.contains('sorting_arrow')) {
+        const leaving_sorting_menu = document.querySelector('.shrink');
+        leaving_sorting_menu.classList.toggle('shrink_activ');
+        const sorting_arrow = document.querySelector('.sorting_arrow');
+        sorting_arrow.classList.toggle('sorting_arrow_activ');
     }
 }
 

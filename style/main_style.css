@@ -266,6 +266,13 @@ input[type="checkbox"]:checked + .options:before {
     text-transform: uppercase;
 }
 
+.inner_sorting_menu {
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .sorting_menu li{
     display: flex;
     flex-direction: row;
@@ -274,9 +281,18 @@ input[type="checkbox"]:checked + .options:before {
     padding: auto;
 }
 
+
 .sorting_menu li:first-child {
-    margin-bottom: 5px;
     font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.inner_sorting_menu li:first-child {
+    margin-bottom: 0px;
+}
+
+.sorting_arrow {
+    display: none;
 }
 
 .sorting_menu label{
@@ -440,7 +456,7 @@ input[type="radio"] {
     align-items: center;
     border-top: 1px solid #cccccc;
     text-transform: uppercase;
-    height: 122px;
+    min-height: 122px;
 }
 
 .information_of_site {
