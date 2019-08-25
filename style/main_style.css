@@ -431,6 +431,8 @@ input[type="radio"] {
 }
 
 .rating_point {
+    display: flex;
+    flex-wrap: nowrap;
     padding: 5px 15px;
     background-color: #f2f2f2;
     font-weight: normal;
@@ -507,4 +509,29 @@ input[type="radio"] {
     background-image: url(../img/youtube.png);
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.list_of_hotel {
+    display: flex;
+    flex-direction: column;
+}
+
+#hotel_4 {
+    order: 4;
+}
+
+#hotel_3 {
+    order: 3;
+}
+
+#hotel_2 {
+    order: 2;
+}
+
+#hotel_1 {
+    order: 1;
+}
+
+#hotel_5 {
+    order: 5;
 }

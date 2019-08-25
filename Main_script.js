@@ -20,10 +20,8 @@ const range = document.querySelector('.button_range');
 let shiftX = null;
 let difference = null;
 let rangeX = null;
-let containerValueCost = document.querySelector('.end_value');
+let containerValueCost = document.querySelector('.start_value');
 
-
-console.dir(range)
 function movRange(event){
     shiftX = event.pageX || event.touches[0].pageX;
     let x = shiftX-container.getBoundingClientRect().left-difference;
