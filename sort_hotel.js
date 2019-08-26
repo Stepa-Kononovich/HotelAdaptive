@@ -1,15 +1,15 @@
 let listHotel = {
-    title: ['Отель 1','Отель 2', 'Отель 3','Отель 4', 'Отель 5'],
-    typeHotel: ['Гостиница', 'Мотель', 'Апартаменты','Гостиница', 'Мотель'],
-    cost: [2900, 2500, 1100, 1000, 1500],
-    linkDetails: ['https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed'],
-    linkReservation: ['https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed'],
-    ratingPoint: ['8,5','7,6','9,0','5,6','7,9'],
-    ratingStars:['★★★★','★★★','★★','★★★★★','★★★'],
-    imgHotel: ['./img/amara.png','./img/amara.png','./img/amara.png','./img/amara.png','./img/amara.png'],
-    thereIsWiFi: [true,true,false,true,false],
-    thereIsParking: [true,false,true,true,false],
-    thereIsSwimmingPoll: [false,false,true,true,true]
+    title: ['Amara Resort & SPA','Desert quail inn', 'Villas at poco diablo','Mt - Glacier Lodge', 'Kalispell', 'Country Inn & Suites','Tropical Beach Resorts'],
+    typeHotel: ['Гостиница', 'Мотель', 'Апартаменты','Гостиница', 'Мотель', 'Апартаменты', 'Гостиница'],
+    cost: [2900, 2500, 1100, 1000, 1500, 2400, 1900],
+    linkDetails: ['https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed'],
+    linkReservation: ['https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed','https://vk.com/feed'],
+    ratingPoint: ['8,5','7,6','9,0','5,6','7,9','8,1','7,4'],
+    ratingStars:['★★★★','★★★','★★','★★★★★','★★★','★★★','★★★★'],
+    imgHotel: ['./img/amara.png','./img/villas.png','./img/dester 22.png','./img/amara.png','./img/dester 22.png', './img/amara.png', './img/villas.png'],
+    thereIsWiFi: [true,true,false,true,false,true,true,false],
+    thereIsParking: [true,false,true,true,true,true,false,false],
+    thereIsSwimmingPoll: [false,false,true,true,false,true,true,true]
 };
 
 let constructorHotel = {
@@ -19,6 +19,7 @@ let constructorHotel = {
 
 const sectionPushHotel = document.querySelector('.list_of_hotel');
 const show = document.querySelector('.button_show');
+let firstLoad = true;
 
 function createListSortHotel (
     {
@@ -38,10 +39,8 @@ function createListSortHotel (
         
     let numberID = 0;
     let hotelID;
+
     let currentCost = document.querySelector('.start_value');
-
-    
-
     let checkedPool = document.querySelector('input[id=poll]');
     let checkedParking = document.querySelector('input[id=parking]');
     let checkedWiFi = document.querySelector('input[id=wi_fi]');
@@ -54,51 +53,54 @@ function createListSortHotel (
             numberID += 1;
             hotelID = 'hotel_' + numberID;
 
-        if(checkedPool.checked) {
-            if(!restSwimmingPoll[g] && (restCost[g] <= currentCost.innerHTML)){
+       if(!firstLoad) {
+            if(checkedPool.checked) {
+                if(!restSwimmingPoll[g] && (restCost[g] <= currentCost.innerHTML)){
+                    continue
+                }
+            }
+            if(checkedParking.checked) {
+                if(!restParking[g] && (restCost[g] <= currentCost.innerHTML)){
+                    continue
+                };
+            }
+
+            if(checkedWiFi.checked) {
+                if(!restWiFi[g] && (restCost[g] <= currentCost.innerHTML)){
+                    continue
+                };
+            }
+
+            if(checkedHotel.checked) {
+                if((restTypeHotel[g] === 'Гостиница') && (restCost[g] <= currentCost.innerHTML)){
+                    createSectionHotel(constructorHotel);
+                }
+            }
+
+            if(checkedMotel.checked) {
+                if((restTypeHotel[g] === 'Мотель') && (restCost[g] <= currentCost.innerHTML)){
+                    createSectionHotel(constructorHotel);
+                }
+            }
+
+            if(checkedApartamets.checked) {
+                if((restTypeHotel[g] === 'Апартаменты') && (restCost[g] <= currentCost.innerHTML)){
+                    createSectionHotel(constructorHotel);
+                }
+            }
+
+            if(checkedApartamets.checked || checkedMotel.checked || checkedHotel.checked) {
+                continue
+            }
+
+            if(!(restCost[g] <= currentCost.innerHTML)) {
                 continue
             }
         }
-        if(checkedParking.checked) {
-            if(!restParking[g] && (restCost[g] <= currentCost.innerHTML)){
-                continue
-            };
+
+            createSectionHotel(constructorHotel);
         }
-
-        if(checkedWiFi.checked) {
-            if(!restWiFi[g] && (restCost[g] <= currentCost.innerHTML)){
-                continue
-            };
-        }
-
-        if(checkedHotel.checked) {
-            if((restTypeHotel[g] === 'Гостиница') && (restCost[g] <= currentCost.innerHTML)){
-                createSectionHotel(constructorHotel);
-            }
-        }
-
-        if(checkedMotel.checked) {
-            if((restTypeHotel[g] === 'Мотель') && (restCost[g] <= currentCost.innerHTML)){
-                createSectionHotel(constructorHotel);
-            }
-        }
-
-        if(checkedApartamets.checked) {
-            if((restTypeHotel[g] === 'Апартаменты') && (restCost[g] <= currentCost.innerHTML)){
-                createSectionHotel(constructorHotel);
-            }
-        }
-
-        if(checkedApartamets.checked || checkedMotel.checked || checkedHotel.checked) {
-            continue
-        }
-
-        if(!(restCost[g] <= currentCost.innerHTML)) {
-            continue
-        }
-
-         createSectionHotel(constructorHotel);
-
+            firstLoad = false;
             function createSectionHotel({type: [...restType], classElement: [...restClass]}) {
             
                 let currentItem;
@@ -228,30 +230,115 @@ function createListSortHotel (
                     }   
                 }
         }
-    }
 }
+
+createListSortHotel(listHotel);
 
 let totalValueHotel = document.querySelector('.sum_found_suggestions');
 totalValueHotel.innerHTML = sectionPushHotel.children.length;
 
-createListSortHotel(listHotel);
+
+show.addEventListener('click', updateListHotel);
+show.addEventListener('touch', updateListHotel);
 
 
-show.addEventListener('click',()=>{
+function updateListHotel() {
     while(sectionPushHotel.firstChild) {
         sectionPushHotel.removeChild(sectionPushHotel.firstChild);
     }
     createListSortHotel(listHotel);
     totalValueHotel.innerHTML = sectionPushHotel.children.length;
+}
+
+
+const checkSortCost = document.querySelector('input[id=cost]');
+const checkSortType = document.querySelector('input[id=type]');
+const checkSortRating = document.querySelector('input[id=rating]');
+ 
+let sortByPrice = document.querySelector('input[id=cost] + label');
+let sortByRating = document.querySelector('input[id=rating] + label');
+
+let sortUp = document.querySelector('.arrow_up');
+let sortDown = document.querySelector('.arrow_down');
+
+sortByPrice.addEventListener('click', () => {sort('first_click_cost')});
+sortByPrice.addEventListener('touch', () => {sort('first_click_cost')});
+
+sortByRating.addEventListener('click', () => {sort('first_click_rating')});
+sortByRating.addEventListener('touch', () => {sort('first_click_rating')});
+
+sortUp.addEventListener('click', () => {
+    arrowDown.classList.remove('arrow_down_activ');
+    arrowUp.classList.add('arrow_up_activ');
+    sort(false)
 });
 
-show.addEventListener('touch',()=>{
-    while(sectionPushHotel.firstChild) {
-        sectionPushHotel.removeChild(sectionPushHotel.firstChild);
-    }
-    createListSortHotel(listHotel);
-    totalValueHotel.innerHTML = sectionPushHotel.children.length;
+sortUp.addEventListener('touch', () => {
+    arrowDown.classList.remove('arrow_down_activ');
+    arrowUp.classList.add('arrow_up_activ');
+    sort(false)
 });
+
+sortDown.addEventListener('click', () => {
+    arrowUp.classList.remove('arrow_up_activ');
+    arrowDown.classList.add('arrow_down_activ');
+    sort(false)
+});
+sortDown.addEventListener('touch', () => {
+    arrowUp.classList.remove('arrow_up_activ');
+    arrowDown.classList.add('arrow_down_activ');
+    sort(false)
+});
+
+let arrowUp = document.querySelector('.arrow_up');
+let arrowDown = document.querySelector('.arrow_down');
+
+
+
+function sort(firstclick) {
+    let listSorting = new Map();
+    let resultSorting = [];
+    let countSort = 1;
+    let result;
+    let direction;
+    
+    if(arrowUp.classList.contains('arrow_up_activ')) {direction = true};
+    if(arrowDown.classList.contains('arrow_up_activ')) {direction = false};
+
+    for(var i = 0; i < sectionPushHotel.children.length; i++) {
+    
+        if(checkSortCost.checked || firstclick === 'first_click_cost') {
+            result = sectionPushHotel.children[i].querySelector('.value_cost').innerHTML;
+        };
+        if(checkSortRating.checked || firstclick ==='first_click_rating') {
+            result = sectionPushHotel.children[i].querySelector('.point').innerHTML;
+        };
+
+        listSorting.set(result, sectionPushHotel.children[i]);
+    }
+
+    for (val of listSorting.keys()) {
+        resultSorting.push(val);
+    }
+
+    console.log(arrowUp.classList.contains('arrow_up_activ'));
+
+    if(direction) {
+        resultSorting.sort();
+    }
+
+    if(!direction){
+        resultSorting.sort().reverse();
+    }
+
+    for(var r = 0; r < resultSorting.length; r++) {
+        listSorting.get(resultSorting[r]).style.order = countSort;
+        countSort += 1;
+    }
+
+}
+
+
 
 
 

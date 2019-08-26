@@ -242,6 +242,7 @@ input[type="checkbox"]:checked + .options:before {
     font-size: 12px;
     margin: auto;
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 .button_show a { 
@@ -344,6 +345,14 @@ input[type="radio"] {
     height: 1px;
     border: 6px solid transparent;
     border-bottom: none;
+    border-top: 10px solid #cccccc;
+}
+
+.drop_arrow_menu .arrow_up_activ {
+    border-bottom: 10px solid #81b3d2;
+}
+
+.drop_arrow_menu .arrow_down_activ {
     border-top: 10px solid #81b3d2;
 }
 

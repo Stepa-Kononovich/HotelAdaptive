@@ -10,7 +10,9 @@ function handleClick(e) {
         const sorting_arrow = document.querySelector('.sorting_arrow');
         sorting_arrow.classList.toggle('sorting_arrow_activ');
     }
+
 }
+
 
 document.addEventListener('click', handleClick);
 document.addEventListener('touch', handleClick);
@@ -22,10 +24,11 @@ let difference = null;
 let rangeX = null;
 let containerValueCost = document.querySelector('.start_value');
 
+
 function movRange(event){
     shiftX = event.pageX || event.touches[0].pageX;
     let x = shiftX-container.getBoundingClientRect().left-difference;
-    if(x - range.getBoundingClientRect().width < 0) {
+    if(x - range.getBoundingClientRect().width + 18 < 0) {
         x = 0;
     }
 
